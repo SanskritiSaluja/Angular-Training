@@ -1,0 +1,9 @@
+<span
+  class="fa"
+  [class.fa-star]="isFavourite"
+  [class.fa-star-o]="!isFavourite"
+  (click)="onClicked()"
+></span>
+<div class="alert alert-warning" role="alert">
+  Click on star icon...Check Console(EventEmitter as changed)
+</div>

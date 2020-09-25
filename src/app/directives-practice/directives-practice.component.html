@@ -1,0 +1,37 @@
+<!-- ngIf -->
+<div *ngIf="courses.length > 0; then coursesList; else noCourses"><br /></div>
+<ng-template #coursesList>List of Courses</ng-template>
+<ng-template #noCourses>No Courses</ng-template>
+
+<!-- ngFor -->
+<ul *ngFor="let course of courses">
+  <li>{{ course }}</li>
+</ul>
+
+<!-- ngSwitch -->
+
+<ul class="nav nav-pills">
+  <li [class.active]="viewMode == 'map'">
+    <a (click)="viewMode = 'map'">Map View ----- </a>
+  </li>
+  <li [class.active]="viewMode == 'list'">
+    <a (click)="viewMode = 'list'">List View</a>
+  </li>
+</ul>
+
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">Map view content</div>
+  <div *ngSwitchCase="'list'">List view content</div>
+  <div *ngSwitchDefault>Otherwise</div>
+</div>
+
+<!-- ngStyle -->
+
+<button
+  [ngStyle]="{
+    backgroundColor: canSave ? 'blue' : 'grey',
+    color: canSave ? 'white' : 'black'
+  }"
+>
+  Save
+</button>
